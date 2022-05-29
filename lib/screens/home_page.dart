@@ -1,7 +1,12 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:smart_home/rooms/drawing_room.dart';
+import 'package:smart_home/rooms/kids_room.dart';
 import 'package:smart_home/screens/login_page.dart';
+import 'package:smart_home/rooms/master_room.dart';
+
+import '../rooms/bed_room.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -89,6 +94,7 @@ class _HomePageState extends State<HomePage> {
                     style: TextStyle(
                       fontSize: 30,
                       fontWeight: FontWeight.bold,
+                      color: Colors.yellow,
                     ),
                   ),
                 ),
@@ -99,7 +105,7 @@ class _HomePageState extends State<HomePage> {
               padding: const EdgeInsets.symmetric(horizontal: 30.0),
               child: Container(
                 decoration: BoxDecoration(
-                  color: Colors.orangeAccent,
+                  color: Color(0xF3ADBEFF),
                   borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(100),
                       topRight: Radius.circular(100),
@@ -108,7 +114,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                   boxShadow: [
                     BoxShadow(
-                      color: Colors.grey.withOpacity(0.5),
+                      color: Colors.white.withOpacity(0.5),
                       spreadRadius: 5,
                       blurRadius: 7,
                       offset: Offset(0, 3), // changes position of shadow
@@ -128,12 +134,14 @@ class _HomePageState extends State<HomePage> {
                                   '22°C',
                                   style: TextStyle(
                                     fontSize: 25,
+                                    color: Colors.black,
                                   ),
                                 ),
                                 Text(
                                   'Inside Temp',
                                   style: TextStyle(
                                     fontSize: 15,
+                                    color: Colors.black,
                                   ),
                                 )
                               ],
@@ -148,12 +156,14 @@ class _HomePageState extends State<HomePage> {
                                     '30°C',
                                     style: TextStyle(
                                       fontSize: 25,
+                                      color: Colors.black,
                                     ),
                                   ),
                                   Text(
                                     'Outside Temp',
                                     style: TextStyle(
                                       fontSize: 15,
+                                      color: Colors.black,
                                     ),
                                   )
                                 ],
@@ -172,12 +182,14 @@ class _HomePageState extends State<HomePage> {
                                   '6 %',
                                   style: TextStyle(
                                     fontSize: 25,
+                                    color: Colors.black,
                                   ),
                                 ),
                                 Text(
                                   'Humidity',
                                   style: TextStyle(
                                     fontSize: 15,
+                                    color: Colors.black,
                                   ),
                                 )
                               ],
@@ -192,6 +204,7 @@ class _HomePageState extends State<HomePage> {
                                     '3',
                                     style: TextStyle(
                                       fontSize: 25,
+                                      color: Colors.black,
                                     ),
                                   ),
                                   Text(
@@ -236,7 +249,7 @@ class _HomePageState extends State<HomePage> {
                       onPressed: (){},
                       child: Text('Living Room'),
                       style: ElevatedButton.styleFrom(
-                        primary: Colors.orangeAccent,
+                        primary: Colors.white,
                       ),
                     ),
                   ),
@@ -245,7 +258,7 @@ class _HomePageState extends State<HomePage> {
                       onPressed: (){},
                       child: Text('Bedroom'),
                       style: ElevatedButton.styleFrom(
-                        primary: Colors.orangeAccent,
+                        primary: Colors.white,
                       ),
                     ),
                   ),
@@ -261,7 +274,7 @@ class _HomePageState extends State<HomePage> {
                       onPressed: (){},
                       child: Text('Kids Room'),
                       style: ElevatedButton.styleFrom(
-                        primary: Colors.orangeAccent,
+                        primary: Colors.white,
                       ),
                     ),
                   ),
@@ -270,7 +283,7 @@ class _HomePageState extends State<HomePage> {
                       onPressed: (){},
                       child: Text('Drawing Room'),
                       style: ElevatedButton.styleFrom(
-                        primary: Colors.orangeAccent,
+                        primary: Colors.white,
                       ),
                     ),
                   ),
@@ -286,20 +299,26 @@ class _HomePageState extends State<HomePage> {
                     child: Padding(
                       padding: const EdgeInsets.only(right: 10.0),
                       child: ElevatedButton(
-                        onPressed: (){},
-                        child: Text('Master Bedroom'),
+                        onPressed: (){
+                          Navigator.of(context).pushReplacement(
+                              MaterialPageRoute(builder: (context) => MasterRoom()));
+                        },
+                        child: Text('Master Bedroom', style: TextStyle(color: Colors.blue),),
                         style: ElevatedButton.styleFrom(
-                          primary: Colors.orangeAccent,
+                          primary: Colors.white,
                         ),
                       ),
                     ),
                   ),
                   Expanded(
                     child: ElevatedButton(
-                      onPressed: (){},
-                      child: Text('Bedroom'),
+                      onPressed: (){
+                        Navigator.of(context).pushReplacement(
+                            MaterialPageRoute(builder: (context) => BedRoom()));
+                      },
+                      child: Text('Bedroom',style: TextStyle(color: Colors.blue),),
                       style: ElevatedButton.styleFrom(
-                        primary: Colors.orangeAccent,
+                        primary: Colors.white,
                       ),
                     ),
                   ),
@@ -315,20 +334,26 @@ class _HomePageState extends State<HomePage> {
                     child: Padding(
                       padding: const EdgeInsets.only(right: 10.0),
                       child: ElevatedButton(
-                        onPressed: (){},
-                        child: Text('Kids Bedroom'),
+                        onPressed: (){
+                          Navigator.of(context).pushReplacement(
+                              MaterialPageRoute(builder: (context) => KidsRoom()));
+                        },
+                        child: Text('Kids Bedroom',style: TextStyle(color: Colors.blue),),
                         style: ElevatedButton.styleFrom(
-                          primary: Colors.orangeAccent,
+                          primary: Colors.white,
                         ),
                       ),
                     ),
                   ),
                   Expanded(
                     child: ElevatedButton(
-                      onPressed: (){},
-                      child: Text('Drawing Room'),
+                      onPressed: (){
+                        Navigator.of(context).pushReplacement(
+                            MaterialPageRoute(builder: (context) => DrawingRoom()));
+                      },
+                      child: Text('Drawing Room',style: TextStyle(color: Colors.blue),),
                       style: ElevatedButton.styleFrom(
-                        primary: Colors.orangeAccent,
+                        primary: Colors.white,
                       ),
                     ),
                   ),
@@ -361,10 +386,10 @@ class _HomePageState extends State<HomePage> {
                       padding: const EdgeInsets.symmetric(horizontal: 8.0),
                       child: ElevatedButton.icon(
                         onPressed: (){},
-                        icon: Icon(Icons.sunny),
-                        label: Text("Morning"),
+                        icon: Icon(Icons.sunny, color: Colors.blue,),
+                        label: Text("Morning",style: TextStyle(color: Colors.blue),),
                         style: ElevatedButton.styleFrom(
-                          primary: Colors.orangeAccent,
+                          primary: Colors.white,
                         ),
                       ),
                     ),
@@ -372,10 +397,10 @@ class _HomePageState extends State<HomePage> {
                       padding: const EdgeInsets.only(right: 8.0),
                       child: ElevatedButton.icon(
                         onPressed: (){},
-                        icon: Icon(Icons.door_back_door),
-                        label: Text("I'm out"),
+                        icon: Icon(Icons.door_back_door, color: Colors.blue,),
+                        label: Text("I'm out",style: TextStyle(color: Colors.blue),),
                         style: ElevatedButton.styleFrom(
-                          primary: Colors.orangeAccent,
+                          primary: Colors.white,
                         ),
                       ),
                     ),
@@ -383,10 +408,10 @@ class _HomePageState extends State<HomePage> {
                       padding: const EdgeInsets.only(right: 8.0),
                       child: ElevatedButton.icon(
                         onPressed: (){},
-                        icon: Icon(Icons.home),
-                        label: Text("Back Home"),
+                        icon: Icon(Icons.home, color: Colors.blue,),
+                        label: Text("Back Home",style: TextStyle(color: Colors.blue),),
                         style: ElevatedButton.styleFrom(
-                          primary: Colors.orangeAccent,
+                          primary: Colors.white,
                         ),
                       ),
                     ),
@@ -394,10 +419,10 @@ class _HomePageState extends State<HomePage> {
                       padding: const EdgeInsets.only(right: 8.0),
                       child: ElevatedButton.icon(
                         onPressed: (){},
-                        icon: Icon(Icons.party_mode),
-                        label: Text("Party Time"),
+                        icon: Icon(Icons.party_mode, color: Colors.blue,),
+                        label: Text("Party Time",style: TextStyle(color: Colors.blue),),
                         style: ElevatedButton.styleFrom(
-                          primary: Colors.orangeAccent,
+                          primary: Colors.white,
                         ),
                       ),
                     ),
@@ -405,10 +430,10 @@ class _HomePageState extends State<HomePage> {
                       padding: const EdgeInsets.only(right: 12.0),
                       child: ElevatedButton.icon(
                         onPressed: (){},
-                        icon: Icon(Icons.bed),
-                        label: Text("Sleep Time"),
+                        icon: Icon(Icons.bed, color: Colors.blue,),
+                        label: Text("Sleep Time",style: TextStyle(color: Colors.blue),),
                         style: ElevatedButton.styleFrom(
-                          primary: Colors.orangeAccent,
+                          primary: Colors.white,
                         ),
                       ),
                     ),
@@ -442,10 +467,10 @@ class _HomePageState extends State<HomePage> {
                       padding: const EdgeInsets.symmetric(horizontal: 8.0),
                       child: ElevatedButton.icon(
                         onPressed: (){},
-                        icon: Icon(Icons.tv),
-                        label: Text("TV"),
+                        icon: Icon(Icons.tv, color: Colors.blue,),
+                        label: Text("TV",style: TextStyle(color: Colors.blue),),
                         style: ElevatedButton.styleFrom(
-                          primary: Colors.orangeAccent,
+                          primary: Colors.white,
                         ),
                       ),
                     ),
@@ -453,10 +478,10 @@ class _HomePageState extends State<HomePage> {
                       padding: const EdgeInsets.only(right: 8.0),
                       child: ElevatedButton.icon(
                         onPressed: (){},
-                        icon: Icon(Icons.kitchen),
-                        label: Text("Fridge"),
+                        icon: Icon(Icons.kitchen, color: Colors.blue,),
+                        label: Text("Fridge",style: TextStyle(color: Colors.blue),),
                         style: ElevatedButton.styleFrom(
-                          primary: Colors.orangeAccent,
+                          primary: Colors.white,
                         ),
                       ),
                     ),
@@ -464,10 +489,10 @@ class _HomePageState extends State<HomePage> {
                       padding: const EdgeInsets.only(right: 8.0),
                       child: ElevatedButton.icon(
                         onPressed: (){},
-                        icon: Icon(Icons.local_laundry_service),
-                        label: Text("Washing Machine"),
+                        icon: Icon(Icons.local_laundry_service, color: Colors.blue,),
+                        label: Text("Washing Machine",style: TextStyle(color: Colors.blue),),
                         style: ElevatedButton.styleFrom(
-                          primary: Colors.orangeAccent,
+                          primary: Colors.white,
                         ),
                       ),
                     ),
@@ -475,10 +500,10 @@ class _HomePageState extends State<HomePage> {
                       padding: const EdgeInsets.only(right: 8.0),
                       child: ElevatedButton.icon(
                         onPressed: (){},
-                        icon: Icon(Icons.fireplace),
-                        label: Text("Oven"),
+                        icon: Icon(Icons.fireplace, color: Colors.blue,),
+                        label: Text("Oven",style: TextStyle(color: Colors.blue),),
                         style: ElevatedButton.styleFrom(
-                          primary: Colors.orangeAccent,
+                          primary: Colors.white,
                         ),
                       ),
                     ),
@@ -486,10 +511,10 @@ class _HomePageState extends State<HomePage> {
                       padding: const EdgeInsets.only(right: 12.0),
                       child: ElevatedButton.icon(
                         onPressed: (){},
-                        icon: Icon(Icons.lightbulb),
-                        label: Text("Bedroom Bulb"),
+                        icon: Icon(Icons.lightbulb, color: Colors.blue,),
+                        label: Text("Bedroom Bulb",style: TextStyle(color: Colors.blue),),
                         style: ElevatedButton.styleFrom(
-                          primary: Colors.orangeAccent,
+                          primary: Colors.white,
                         ),
                       ),
                     ),

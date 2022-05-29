@@ -41,50 +41,60 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
         backgroundColor: Colors.lightBlue,
         elevation: 0,
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 25.0),
-            child: Text(
-                'Enter your email and we will send you a password reset link',
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 20,
-              ),
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage(
+              'assets/images/iot_background_blank.png',
             ),
-          ),
-        SizedBox(height: 20,),
-        // email textfield
-
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 25.0),
-          child: TextField(
-            controller: _emailController,
-            decoration: InputDecoration(
-              enabledBorder: OutlineInputBorder(
-                borderSide: BorderSide(
-                  color: Colors.white,
-                ),
-                borderRadius: BorderRadius.circular(12),
-              ),
-              focusedBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.deepPurple),
-                borderRadius: BorderRadius.circular(12),
-              ),
-              hintText: 'Email',
-              fillColor: Colors.grey[200],
-              filled: true,
-            ),
+            fit: BoxFit.fill,
           ),
         ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 25.0),
+              child: Text(
+                  'Enter your email and we will send you a password reset link',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 20,
+                ),
+              ),
+            ),
           SizedBox(height: 20,),
-          MaterialButton(
-            onPressed: passwordReset,
-            child: Text('Reset Password'),
-            color: Colors.deepPurple,
-          )
-        ],
+          // email textfield
+
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 25.0),
+            child: TextField(
+              controller: _emailController,
+              decoration: InputDecoration(
+                enabledBorder: OutlineInputBorder(
+                  borderSide: BorderSide(
+                    color: Colors.white,
+                  ),
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: Colors.deepPurple),
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                hintText: 'Email',
+                fillColor: Colors.grey[200],
+                filled: true,
+              ),
+            ),
+          ),
+            SizedBox(height: 20,),
+            MaterialButton(
+              onPressed: passwordReset,
+              child: Text('Reset Password'),
+              color: Colors.deepPurple,
+            )
+          ],
+        ),
       )
     );
   }
